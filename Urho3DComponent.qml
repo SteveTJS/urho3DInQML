@@ -2,8 +2,6 @@ import QtQuick 2.5
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 
-//image ratio must be 4/3
-
 Item{
 
     property bool urho3DFill;
