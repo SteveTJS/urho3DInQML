@@ -8,7 +8,7 @@ Item{
 
     Image {
         id: textureUrho3d
-        source: "image://Urho3DTextureProvider/texture" //mUrho3DManager.getUrl(1)//
+        source: "image://Urho3DTextureProvider/texture"
         x: parent.x
         y: parent.y
         width: parent.width
@@ -18,7 +18,7 @@ Item{
     Connections {
         target: mUrho3DManager
         onSceneTextureUpdated:{
-            textureUrho3d.source = "image://Urho3DTextureProvider/texture?" + Math.random()//mUrho3DManager.getUrl(2) //
+            textureUrho3d.source = "image://Urho3DTextureProvider/texture?" + Math.random()
         }
     }
 
