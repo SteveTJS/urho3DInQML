@@ -31,9 +31,23 @@ void Urho3DManager::startUrho3D()
 
 void Urho3DManager::deleteUrho3D()
 {
-    //test to delete Urho3D part and close the second window
-    mTimer->stop();
-    //delete mUrho3DApplication;//crash
+    if(mIsUrho3DCreated == true)
+    {
+        //test to delete Urho3D part and close the second window
+        mTimer->stop();
+        //mUrho3DContext.Reset();
+        mUrho3DApplication.Reset();
+        mIsUrho3DCreated=false;
+    }
+    else
+    {
+        //create Urho3D part again
+        mUrho3DContext = new Urho3D::Context();
+        mUrho3DApplication = new Urho3DApplication(mUrho3DContext);
+        QObject::connect(mUrho3DApplication,SIGNAL(updateSceneTexture(unsigned char*,int,int)),this,SLOT(updateSceneTexture(unsigned char*,int,int)));
+        mIsUrho3DCreated=true;
+        startUrho3D();
+    }
 }
 
 void Urho3DManager::refreshUrho3D()
