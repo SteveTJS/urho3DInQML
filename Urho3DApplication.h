@@ -37,9 +37,7 @@ private:
     Camera* mCamera;
     SharedPtr<Node> mBoxNode;
 
-    unsigned char* mRenderTextureData;
     unsigned char* mRenderTextureWholeSceneData;
-    SharedPtr<Texture2D> renderTexture;
     SharedPtr<Texture2D> renderTextureWholeScene;
 
 public:
@@ -53,9 +51,7 @@ public:
     virtual StringHash GetType() const { return StringHash(""); };
     const String stra = "a";
     const String& GetTypeName() const { return stra; };
-    virtual const TypeInfo* GetTypeInfo() const { return new TypeInfo("", 0); };
-
-    unsigned char* getRenderTextureData();    
+    virtual const TypeInfo* GetTypeInfo() const { return new TypeInfo("", 0); }; 
 
 signals:
     void updateSceneTexture(unsigned char* inRenderTextureData, int inWidth, int inHeight);
