@@ -103,9 +103,3 @@ void Urho3DApplication::HandleRenderUpdate(StringHash eventType, VariantMap & ev
     renderTextureWholeScene->GetData(0, mRenderTextureWholeSceneData);
     emit updateSceneTexture(mRenderTextureWholeSceneData, mUrho3DWidth, mUrho3DHeight);
 }
-
-unsigned char* Urho3DApplication::getRenderTextureData()
-{
-    return mRenderTextureData;
-}
-
