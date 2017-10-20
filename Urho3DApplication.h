@@ -42,6 +42,7 @@ private:
 
 public:
     Urho3DApplication(Context * context);
+    ~Urho3DApplication();
     virtual void Setup();
     virtual void Start();
     void HandleUpdate(StringHash eventType,VariantMap& eventData);
