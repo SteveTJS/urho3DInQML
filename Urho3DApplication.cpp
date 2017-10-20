@@ -14,6 +14,28 @@ Urho3DApplication::Urho3DApplication(Context * context) :
     mHWnd = CreateWindow(L"STATIC", L"Native window", 0, 0, 0, URHO_WIDTH, URHO_HEIGHT, 0, 0, 0, 0);
 }
 
+Urho3DApplication::~Urho3DApplication()
+{
+    mCameraNode->RemoveAllComponents();
+    mCameraNode.Reset();
+
+    mBoxNode->RemoveAllComponents();
+    mBoxNode->Remove();
+    mBoxNode.Reset();
+
+    renderTextureWholeScene.Reset();
+    delete mRenderTextureWholeSceneData;
+
+    mScene->RemoveAllChildren();
+    mScene->RemoveAllComponents();
+    mScene->Clear();
+    mScene.Reset();
+
+    mEngine.Reset();
+
+    DestroyWindow(mHWnd);
+}
+
 void Urho3DApplication::Setup()
 {
     VariantMap engineParameters;
